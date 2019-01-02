@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row"><h3>Workout History</h3></div>
+  <div class="row">
+    <label for="workout">Workouts</label>
+  </div>
+  <div class="row">
+    <label for="filter">Filter workouts:</label>
+    <div class="btn btn-group">
+      <label for="all">
+        <input type="radio" name="searchFilter" value="" (change)="completed = null" checked> All
+      </label>
+      <label for="completed">
+        <input type="radio" name="searchFilter" value="true" (change)="completed = $event.target.value == 'true'"> Completed
+      </label>
+      <label for="incomplete">
+        <input type="radio" name="searchFilter" value="false" (change)="completed = $event.target.value == 'true'"> Incompleted
+      </label>
+    </div>
+  </div>
+  <div class="row table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Started</th>
+          <th>Ended</th>
+          <th>Last Exercise</th>
+          <th>Exercises Done</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of history | search:'completed':completed | orderBy: '-startedOn' ; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.startedOn }}</td>
+          <td>{{ item.endedOn }}</td>
+          <td>{{ item.lastExercise }}</td>
+          <td>{{ item.exercicesDone }}</td>
+          <td>{{ item.completed ? "Yes" : "No" }}</td>
+        </tr>
+        <tr *ngIf="history.length === 0" class="warning">
+          <td colspan="6">No workout history found!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary pull-right" (click)="goBack()">Go Back</button>
+  </div>
+</div>

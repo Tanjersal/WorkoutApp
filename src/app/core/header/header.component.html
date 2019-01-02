@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-header">7 Minute Workout</div>
+  <div class="collapse navbar-collapse"></div>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a
+        *ngIf="showHistoryLink"
+        routerLink="/history"
+        class="nav-link"
+        title="Workout History"
+        >History</a
+      >
+    </li>
+  </ul>
+</nav>
