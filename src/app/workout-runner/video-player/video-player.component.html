@@ -1,8 +1,17 @@
 <div class="card">
   <h2 class="card-header">Videos</h2>
   <div class="card-body">
-    <div *ngFor="let video of safeVideosUrls">
+    <!-- <div *ngFor="let video of safeVideosUrls">
       <iframe [src]="video" width="198" height="132" frameborder="0" allowfullscreen></iframe>
+    </div> -->
+    <div class="row" *ngFor="let video of safeVideosUrls">
+      <div class="col-sm-12 p-2">
+        <img [src]="'//i.ytimg.com/vi/'+video+'/hqdefault.jpg'" class="video-image">
+      </div>
     </div>
   </div>
+</div>
+
+<div class="row">
+
 </div>

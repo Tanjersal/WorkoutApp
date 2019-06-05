@@ -1,7 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { ExercisePlan, WorkoutPlan, Exercise } from "./model";
+<<<<<<< HEAD
 import { Router } from "@angular/router";
 import { WorkoutHistoryTrackerService  } from "../core/workout-history-tracker.service";
+=======
+>>>>>>> fix all npm audit vulnerabilities
 
 @Component({
   selector: "app-workout-runner",
@@ -20,7 +23,11 @@ export class WorkoutRunnerComponent implements OnInit {
   exerciseTrackingInterval: number;
   workoutPaused: boolean;
 
+<<<<<<< HEAD
   constructor(private router: Router, private tracker: WorkoutHistoryTrackerService) {}
+=======
+  constructor() {}
+>>>>>>> fix all npm audit vulnerabilities
 
   ngOnInit() {
     // create a workout
@@ -37,8 +44,11 @@ export class WorkoutRunnerComponent implements OnInit {
 
   // function to start the workout
   start() {
+<<<<<<< HEAD
     this.tracker.startTracking();
 
+=======
+>>>>>>> fix all npm audit vulnerabilities
     this.workoutTimeRemaining = this.workoutPlan.totalWorkoutDuration();
     this.currentExerciseIndex = 0;
 
@@ -57,6 +67,7 @@ export class WorkoutRunnerComponent implements OnInit {
   startExerciseTimeTracking() {
     this.exerciseTrackingInterval = window.setInterval(() => {
       if (this.exerciseRunningDuration >= this.currentExercise.duration) {
+<<<<<<< HEAD
 
         clearInterval(this.exerciseTrackingInterval);
 
@@ -66,6 +77,9 @@ export class WorkoutRunnerComponent implements OnInit {
           this.tracker.exerciseComplete(this.workoutPlan.exercises[this.currentExerciseIndex]);
         }
 
+=======
+        clearInterval(this.exerciseTrackingInterval);
+>>>>>>> fix all npm audit vulnerabilities
         const next: ExercisePlan = this.getNextExercise();
         if (next) {
           if (next !== this.restExercise) {
@@ -73,9 +87,13 @@ export class WorkoutRunnerComponent implements OnInit {
           }
           this.startExercise(next);
         } else {
+<<<<<<< HEAD
           // console.log("Workout complete!");
           this.tracker.endTracking(true);
           this.router.navigate(["./finish"]);
+=======
+          console.log("Workout complete!");
+>>>>>>> fix all npm audit vulnerabilities
         }
         return;
       }
